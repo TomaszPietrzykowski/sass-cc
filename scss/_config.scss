@@ -1,0 +1,20 @@
+$light-color: #f4f4f4;
+$font-stack: Arial, Helvetica, sans-serif;
+$primary-color: #0e6cff;
+$secondary-color: #ff8700;
+
+// finction example: set text color basd on bg color
+@function set-text-color($color) {
+  // check the background color
+  @if (lightness($color) > 70) {
+    @return #333;
+  } @else {
+    @return #fff;
+  }
+}
+
+// or use mixin to set background and text color at the same time
+@mixin set-colors($color) {
+  background-color: $color;
+  color: set-text-color($color);
+}
